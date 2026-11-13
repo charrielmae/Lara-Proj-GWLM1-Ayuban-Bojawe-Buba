@@ -106,6 +106,10 @@
             <h3>The Performer</h3>
             <p>Drag-inspired makeup, wild costumes, and huge singalong crowds.</p>
         </article>
+          <article class="card">
+            <h3>The Collaborators</h3>
+            <p>Producers and co-writers credited on the album who helped shape its sound.</p>
+        </article>
     </div>
 </section>
 
