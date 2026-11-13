@@ -231,6 +231,15 @@
     .timeline .year { flex-basis: auto; }
 }
 
+    .timeline li:hover .year {
+        color: var(--neon);
+        text-shadow: 0 0 10px var(--neon);
+}
+
+    .timeline .year {
+        transition: color .25s ease, text-shadow .25s ease;
+}
+
 @media (prefers-reduced-motion: reduce) {
     .about-header .sparkle,
     .more-text:not([hidden]) { animation: none; }
