@@ -64,7 +64,7 @@
     z-index: 1;
     width: 22px;
     height: 22px;
-    background: #fff;
+    background: var(--neon);
     clip-path: polygon(50% 0, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0 50%, 40% 40%);
     filter: drop-shadow(0 0 8px var(--neon));
     animation: about-twinkle 2.4s ease-in-out infinite;
@@ -268,8 +268,13 @@
 }
 
 .vertical-name {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
     font-family: 'Pinyon Script', 'Great Vibes', cursive;
-    font-weight: 400;
+    font-size: clamp(4rem, 9vw, 8rem);
+    line-height: 1;
+    color: var(--pink);
+    text-shadow: 0 0 18px rgba(255, 143, 199, .45);
 }
 
 .about-header .label,
@@ -289,8 +294,11 @@
 }
 
 .counter .count {
+    display: block;
     font-family: 'Pinyon Script', 'Great Vibes', cursive;
-    font-weight: 400;
+    font-size: clamp(3rem, 7vw, 4.5rem);
+    color: var(--pink);
+    text-shadow: 0 0 6px var(--neon), 0 0 18px var(--neon), 0 0 40px var(--pink);
 }
 
 .about-background .btn {
