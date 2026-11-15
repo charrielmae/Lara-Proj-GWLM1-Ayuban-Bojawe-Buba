@@ -490,17 +490,36 @@
         padding: 0.85rem 1.2rem;
         border-radius: 12px;
         background: rgba(247, 182, 210, 0.04);
-        border: 1px solid transparent;
-        transition: all 0.3s ease;
+        border: 1px solid var(--border-color);
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         text-decoration: none;
         color: var(--text);
+        cursor: pointer;
     }
 
     .track-item:hover {
-        background: rgba(247, 182, 210, 0.12);
-        border-color: var(--pink);
-        transform: translateX(4px);
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        background: #f4acb7;
+        border-color: #f4acb7;
+        color: #1A0B14;
+        transform: translateX(6px) scale(1.01);
+        box-shadow: 0 8px 24px rgba(244, 172, 183, 0.45), 0 0 16px rgba(244, 172, 183, 0.3);
+    }
+
+    .track-item:hover .track-name {
+        color: #1A0B14;
+        font-weight: 500;
+    }
+
+    .track-item:hover .track-number {
+        background: #1A0B14;
+        color: #f4acb7;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    }
+
+    .track-item:hover .track-tag {
+        background: rgba(26, 11, 20, 0.12);
+        color: #1A0B14;
+        font-weight: 600;
     }
 
     .track-number {
