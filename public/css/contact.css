@@ -57,7 +57,7 @@
     position: relative;
     background: var(--card, #2A1220);
     border-radius: 18px;
-    padding: 2rem;
+    padding: 2.2rem;
 }
 
 /* cream-edged card for the form */
