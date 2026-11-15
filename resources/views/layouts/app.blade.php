@@ -215,14 +215,28 @@
             font-size: 0.95rem;
             color: var(--text);
             opacity: 0.85;
+            transition: color 0.4s ease;
+        }
+
+        [data-theme="light"] .footer-text {
+            color: #2A1220;
+            opacity: 0.95;
+            font-weight: 400;
         }
 
         .footer-credits {
             font-size: 0.85rem;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            color: var(--lilac);
+            color: #C8BAF7;
+            font-weight: 500;
             margin-top: 0.5rem;
+            transition: color 0.4s ease;
+        }
+
+        [data-theme="light"] .footer-credits {
+            color: #7A285E; /* Crisp, readable deep berry for light mode */
+            font-weight: 600;
         }
 
         @media (max-width: 768px) {

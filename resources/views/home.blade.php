@@ -209,11 +209,16 @@
 
     /* Ambient credit note */
     .bg-credit {
-        font-size: 0.75rem;
+        font-size: 0.8rem;
         letter-spacing: 0.05em;
-        color: var(--lilac);
-        opacity: 0.7;
+        color: #C8BAF7;
         margin-top: 1.8rem;
+        transition: color 0.4s ease;
+    }
+
+    [data-theme="light"] .bg-credit {
+        color: #5A2A4E; /* Dark readable plum for light mode */
+        font-weight: 500;
     }
 
     /* ==========================================
@@ -280,10 +285,15 @@
 
     .intro-photo-credit {
         font-size: 0.8rem;
-        color: var(--lilac);
-        opacity: 0.8;
+        color: #C8BAF7;
         margin-bottom: 1.4rem;
         display: block;
+        transition: color 0.4s ease;
+    }
+
+    [data-theme="light"] .intro-photo-credit {
+        color: #5A2A4E;
+        font-weight: 500;
     }
 
     .intro-flourish {
@@ -584,7 +594,13 @@
         font-family: var(--font-body);
         font-weight: 300;
         font-size: 1.1rem;
-        color: var(--lilac);
+        color: #C8BAF7;
+        transition: color 0.4s ease;
+    }
+
+    [data-theme="light"] .section-subheading {
+        color: #5A2A4E;
+        font-weight: 400;
     }
 
     .highlights-grid {
@@ -871,13 +887,16 @@
             <!-- Sub-line: Pop, pageants, and pink ponies from Willard, Missouri. -->
             <p class="hero-subline">Pop, pageants, and pink ponies from Willard, Missouri.</p>
             
-            <!-- Buttons: Listen to the Album & Meet the Princess -->
+            <!-- Buttons: Meet the Princess, Listen to the Album (center), Send a Fan Letter -->
             <div class="hero-buttons">
+                <a href="/about" class="btn btn-secondary">
+                    Meet the Princess
+                </a>
                 <a href="#tracklist" class="btn btn-primary">
                     Listen to the Album
                 </a>
-                <a href="/about" class="btn btn-secondary">
-                    Meet the Princess
+                <a href="/fan-letter" class="btn btn-secondary">
+                    Send a Fan Letter
                 </a>
             </div>
 
