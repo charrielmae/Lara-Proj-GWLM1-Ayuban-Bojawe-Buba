@@ -1,4 +1,5 @@
 /* ===== About page styles (uses variables from public/css/app.css) ===== */
+@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,600;1,400;1,600&family=Jost:wght@300;400;600&display=swap');
 
 /* ---------- Header (Poster 2) ---------- */
 .about-header {
@@ -243,4 +244,56 @@
 @media (prefers-reduced-motion: reduce) {
     .about-header .sparkle,
     .more-text:not([hidden]) { animation: none; }
+}
+
+/* ===== Self-contained fonts (independent of app.css) ===== */
+.about-section,
+.about-header .listeners,
+.about-section p {
+    font-family: 'Jost', system-ui, sans-serif;
+    font-weight: 300;
+}
+
+.about-header h1,
+.about-section h2,
+.about-section h3 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 600;
+    color: var(--pink, #F7B6D2);
+}
+
+.about-header .tagline {
+    font-style: italic;
+    text-transform: lowercase;
+}
+
+.vertical-name {
+    font-family: 'Pinyon Script', 'Great Vibes', cursive;
+    font-weight: 400;
+}
+
+.about-header .label,
+.about-section .label,
+.counter .label,
+.listeners .label {
+    font-family: 'Jost', system-ui, sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+.listeners-number {
+    font-family: 'Jost', system-ui, sans-serif;
+    font-weight: 300;
+}
+
+.counter .count {
+    font-family: 'Pinyon Script', 'Great Vibes', cursive;
+    font-weight: 400;
+}
+
+.about-background .btn {
+    font-family: 'Jost', system-ui, sans-serif;
+    font-weight: 600;
 }
