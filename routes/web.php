@@ -11,11 +11,7 @@ Route::get('/home', function () {
 });
 
 Route::get('/about', function () {
-    if (view()->exists('about')) {
-        return view('about');
-    }
-
-    return redirect('/#intro');
+    return view('about');
 })->name('about');
 
 Route::get('/fan-letter', function () {
