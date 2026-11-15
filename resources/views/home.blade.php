@@ -720,6 +720,13 @@
         border-radius: 14px;
         overflow: hidden;
         background: #11050D;
+        cursor: pointer;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .slider-viewport:hover {
+        transform: scale(1.01);
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4), 0 0 30px var(--glow-color);
     }
 
     .slide {
@@ -730,7 +737,7 @@
         height: 100%;
         opacity: 0;
         visibility: hidden;
-        transition: opacity 0.6s ease, visibility 0.6s ease, transform 0.6s ease;
+        transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.9s ease, transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
         transform: scale(0.98);
         display: flex;
         flex-direction: column;
@@ -805,35 +812,8 @@
     .slider-controls {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        margin-top: 1.5rem;
-    }
-
-    .slider-nav-btns {
-        display: flex;
-        gap: 0.8rem;
-    }
-
-    .slider-btn {
-        width: 44px;
-        height: 44px;
-        border-radius: 50%;
-        background: rgba(247, 182, 210, 0.1);
-        border: 1px solid var(--border-color);
-        color: var(--pink);
-        font-size: 1.2rem;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
         justify-content: center;
-        transition: all 0.3s ease;
-    }
-
-    .slider-btn:hover {
-        background: var(--pink);
-        color: var(--btn-text);
-        box-shadow: 0 0 15px var(--glow-color);
-        transform: scale(1.05);
+        margin-top: 1.5rem;
     }
 
     .slider-dots {
@@ -1126,11 +1106,6 @@
                     <span class="dot" data-index="1"></span>
                     <span class="dot" data-index="2"></span>
                 </div>
-
-                <div class="slider-nav-btns">
-                    <button class="slider-btn" id="prevSlide" aria-label="Previous Slide">‹</button>
-                    <button class="slider-btn" id="nextSlide" aria-label="Next Slide">›</button>
-                </div>
             </div>
         </div>
     </section>
@@ -1198,12 +1173,11 @@
         }
 
         // ==========================================
-        // JS REQUIREMENT 1: IMAGE & MOOD SLIDER
+        // JS REQUIREMENT 1: IMAGE & MOOD SLIDER (HOVER TRANSITION)
         // ==========================================
+        const sliderViewport = document.getElementById('imageSlider');
         const slides = document.querySelectorAll('.slide');
         const dots = document.querySelectorAll('.dot');
-        const prevBtn = document.getElementById('prevSlide');
-        const nextBtn = document.getElementById('nextSlide');
         let currentSlide = 0;
         let slideInterval;
 
@@ -1222,39 +1196,28 @@
             showSlide(nextIndex);
         }
 
-        function prevSlide() {
-            let prevIndex = (currentSlide - 1 + slides.length) % slides.length;
-            showSlide(prevIndex);
-        }
-
-        if (nextBtn && prevBtn) {
-            nextBtn.addEventListener('click', () => {
+        if (sliderViewport && slides.length > 0) {
+            // Hover trigger: automatically proceed to next image with fading transition when pointing cursor
+            sliderViewport.addEventListener('mouseenter', () => {
                 nextSlide();
-                resetAutoplay();
+                clearInterval(slideInterval);
+                slideInterval = setInterval(nextSlide, 2600);
             });
 
-            prevBtn.addEventListener('click', () => {
-                prevSlide();
-                resetAutoplay();
+            sliderViewport.addEventListener('mouseleave', () => {
+                clearInterval(slideInterval);
+                slideInterval = setInterval(nextSlide, 4500);
             });
 
             dots.forEach((dot, i) => {
                 dot.addEventListener('click', () => {
                     showSlide(i);
-                    resetAutoplay();
+                    clearInterval(slideInterval);
+                    slideInterval = setInterval(nextSlide, 4500);
                 });
             });
 
-            function startAutoplay() {
-                slideInterval = setInterval(nextSlide, 5000);
-            }
-
-            function resetAutoplay() {
-                clearInterval(slideInterval);
-                startAutoplay();
-            }
-
-            startAutoplay();
+            slideInterval = setInterval(nextSlide, 4500);
         }
     });
 </script>
