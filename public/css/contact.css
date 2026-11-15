@@ -1,0 +1,258 @@
+/* contact.css - styles for the Contact page only.
+   Colors come from the CSS variables in public/css/app.css (Member 1).
+   The second value in each var() is a fallback in case app.css is missing. */
+
+.contact {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 1.25rem 4rem;
+}
+
+/* ---------- Header ---------- */
+.contact-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.contact-header .label {
+    color: var(--lilac, #B7A6E6);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    margin: 0 0 0.5rem;
+}
+
+.contact-title {
+    font-family: var(--font-script, 'Pinyon Script', cursive);
+    font-weight: 400;
+    font-size: clamp(2.6rem, 8vw, 4.5rem);
+    color: #fff;
+    margin: 0;
+    /* neon glow like the Poster 3 look */
+    text-shadow: 0 0 6px var(--neon, #FF8FC7),
+                 0 0 18px var(--neon, #FF8FC7),
+                 0 0 40px var(--pink, #F7B6D2);
+}
+
+.contact-tagline {
+    font-family: var(--font-serif, 'Cormorant Garamond', Georgia, serif);
+    font-style: italic;
+    text-transform: lowercase;
+    font-size: 1.5rem;
+    color: var(--pink, #F7B6D2);
+    margin: 0.5rem 0 0;
+}
+
+/* ---------- Layout: form on the left, details on the right ---------- */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+/* ---------- Cards ---------- */
+.letter-card,
+.details-card {
+    position: relative;
+    background: var(--card, #2A1220);
+    border-radius: 18px;
+    padding: 2rem;
+}
+
+/* cream-edged card for the form */
+.letter-card {
+    border: 3px solid var(--text, #FBEFE6);
+    box-shadow: 0 0 0 1px var(--pink, #F7B6D2), 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* thin pink border for the details card */
+.details-card {
+    border: 1px solid var(--pink, #F7B6D2);
+}
+
+/* small sparkle in a card corner */
+.sparkle-corner {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    clip-path: polygon(50% 0, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0 50%, 40% 40%);
+    filter: drop-shadow(0 0 8px var(--neon, #FF8FC7));
+    animation: twinkle 2.4s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(0.7); }
+    50%      { opacity: 1;   transform: scale(1.1); }
+}
+
+/* ---------- Form ---------- */
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.4rem;
+    color: var(--pink, #F7B6D2);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+.form-group input,
+.form-group textarea {
+    box-sizing: border-box;   /* include padding + border in the 100% width */
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background: rgba(251, 239, 230, 0.06);
+    color: var(--text, #FBEFE6);
+    border: 1px solid rgba(247, 182, 210, 0.45);
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 140px;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(251, 239, 230, 0.45);
+}
+
+/* lilac focus ring */
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--lilac, #B7A6E6);
+    box-shadow: 0 0 0 3px rgba(183, 166, 230, 0.55);
+}
+
+/* error state (class added by contact.js) */
+.form-group input.has-error,
+.form-group textarea.has-error {
+    border-color: var(--error, #FF6B6B);
+}
+
+.error-text {
+    display: block;
+    min-height: 1.2rem;          /* reserve space so the layout does not jump */
+    margin-top: 0.3rem;
+    color: var(--error, #FF6B6B);
+    font-size: 0.85rem;
+}
+
+/* ---------- Button (pill, pink fill, plum text, glow on hover) ---------- */
+.btn-send {
+    display: inline-block;
+    padding: 0.85rem 2.2rem;
+    background: var(--pink, #F7B6D2);
+    color: var(--bg, #1A0B14);
+    border: none;
+    border-radius: 999px;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.btn-send:hover,
+.btn-send:focus-visible {
+    box-shadow: 0 0 10px var(--neon, #FF8FC7), 0 0 26px var(--neon, #FF8FC7);
+    transform: translateY(-2px);
+    outline: none;
+}
+
+/* ---------- Success banner ---------- */
+.success-banner {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem 1.2rem;
+    background: var(--pink, #F7B6D2);
+    color: var(--bg, #1A0B14);
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+.success-banner[hidden] { display: none; }   /* make sure "hidden" really hides it */
+.success-banner p { margin: 0; }
+
+.success-sparkle {
+    flex: 0 0 26px;
+    width: 26px;
+    height: 26px;
+    background: #fff;
+    clip-path: polygon(50% 0, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0 50%, 40% 40%);
+    filter: drop-shadow(0 0 6px var(--neon, #FF8FC7));
+    animation: twinkle 2.4s ease-in-out infinite;
+}
+
+/* ---------- Contact details ---------- */
+.details-card h2 {
+    margin: 0 0 1.2rem;
+    font-size: 1.8rem;
+}
+
+.details-card h3 {
+    margin: 1.8rem 0 0.4rem;
+    font-size: 1.3rem;
+}
+
+.details-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.details-list li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(247, 182, 210, 0.2);
+    word-break: break-word;
+}
+
+.details-list li:last-child { border-bottom: none; }
+
+.details-card .label {
+    color: var(--lilac, #B7A6E6);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+}
+
+.details-card a {
+    color: var(--amber, #E8922E);
+    text-decoration: none;
+}
+
+.details-card a:hover { text-decoration: underline; }
+
+.social { margin: 0; color: var(--text, #FBEFE6); }
+
+.sample-note {
+    margin: 1.2rem 0 0;
+    font-size: 0.8rem;
+    font-style: italic;
+    color: rgba(251, 239, 230, 0.6);
+}
+
+/* ---------- Responsive: stack on tablets / phones ---------- */
+@media (max-width: 800px) {
+    .contact-grid { grid-template-columns: 1fr; }
+    .letter-card, .details-card { padding: 1.5rem; }
+}
