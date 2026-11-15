@@ -17,3 +17,15 @@ Route::get('/about', function () {
 
     return redirect('/#intro');
 })->name('about');
+
+Route::get('/fan-letter', function () {
+    if (view()->exists('fan-letter')) {
+        return view('fan-letter');
+    }
+
+    if (view()->exists('contact')) {
+        return view('contact');
+    }
+
+    return redirect('/#intro');
+})->name('fan-letter');

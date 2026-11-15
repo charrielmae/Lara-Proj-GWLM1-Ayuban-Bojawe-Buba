@@ -871,13 +871,16 @@
             <!-- Sub-line: Pop, pageants, and pink ponies from Willard, Missouri. -->
             <p class="hero-subline">Pop, pageants, and pink ponies from Willard, Missouri.</p>
             
-            <!-- Buttons: Listen to the Album & Meet the Princess -->
+            <!-- Buttons: Meet the Princess, Listen to the Album (center), Send a Fan Letter -->
             <div class="hero-buttons">
+                <a href="/about" class="btn btn-secondary">
+                    Meet the Princess
+                </a>
                 <a href="#tracklist" class="btn btn-primary">
                     Listen to the Album
                 </a>
-                <a href="/about" class="btn btn-secondary">
-                    Meet the Princess
+                <a href="/fan-letter" class="btn btn-secondary">
+                    Send a Fan Letter
                 </a>
             </div>
 
