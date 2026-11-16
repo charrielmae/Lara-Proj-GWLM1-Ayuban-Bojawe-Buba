@@ -59,10 +59,10 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 
                                                             ---- SUBMISSION REQUIREMENTS ----- 
-Group Name: PowerPuff_Girls 
-Section: GWLM1 
-Members: Ayuban, Charriel Mae M. 
+## Group Name: PowerPuff_Girls 
+## Section: GWLM1 
+## Members: Ayuban, Charriel Mae M. 
          Bojawe, Hazel Mae P. 
          Buba, Ashley Queen 
-App's Theme: Band Page 
+## App's Theme: Band Page 
 
