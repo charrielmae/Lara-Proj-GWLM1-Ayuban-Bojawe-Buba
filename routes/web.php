@@ -10,12 +10,11 @@ Route::get('/home', function () {
     return view('home');
 });
 
+Route::get('/contact', function () {
+    return view('contact');
+});
 Route::get('/about', function () {
-    if (view()->exists('about')) {
-        return view('about');
-    }
-
-    return redirect('/#intro');
+    return view('about');
 })->name('about');
 
 Route::get('/fan-letter', function () {
